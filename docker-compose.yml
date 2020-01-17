@@ -6,7 +6,7 @@ services:
     ports:
       - '8080:80'
     volumes:
-      - ./template/:/usr/local/apache2/htdocs/
+      - ./public_html/:/usr/local/apache2/htdocs/
 
   db:
     image: mariadb

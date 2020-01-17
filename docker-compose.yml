@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  website:
+    image: httpd:2.4
+    ports:
+      - '8080:80'
+    volumes:
+      - ./template/:/usr/local/apache2/htdocs/
+
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: examplerootPW
+      MYSQL_DATABASE: websitedb
+      MYSQL_USER: example
+      MYSQL_PASSWORD: examplePW
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
